@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <title>⚽ Cobro de penaltis</title>
+  <style>
+    :root {
+      --verde: #00581f;
+      --verde-claro: #1aad4e;
+      --dorado: #f5c518;
+      --rojo: #c0392b;
+      --blanco: #ffffff;
+      --texto: #1a1a1a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #005c20 0%, #004d1a 100%);
+      color: var(--blanco);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .page {
+      width: min(100%, 420px);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--dorado);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .intro {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1rem;
+    }
+
+    .marcador {
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .marcador span { color: var(--dorado); font-weight: 700; }
+
+    .porteria {
+      position: relative;
+      width: 100%;
+      height: 86px;
+      border: 3px solid rgba(255,255,255,0.9);
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .zona {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px dashed rgba(255,255,255,0.2);
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .zona:last-child { border-right: none; }
+    .zona.balón-aqui { background: rgba(245,197,24,0.35); }
+    .zona.portero-aqui { background: rgba(192,57,43,0.45); }
+    .zona.gol-zona { background: rgba(26,173,78,0.4); }
+
+    .portero-emoji { font-size: 1.4rem; display: none; position: absolute; bottom: 4px; }
+    .zona.portero-aqui .portero-emoji { display: block; }
+
+    .palo-base {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 0 0 3px 3px;
+      margin-bottom: 0.8rem;
+    }
+
+    .instruccion {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.65rem;
+      text-align: center;
+    }
+
+    .btns-direccion {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.45rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-dir {
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.12);
+      color: var(--blanco);
+      border-radius: 10px;
+      padding: 0.65rem 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-dir:disabled { opacity: 0.45; cursor: default; }
+
+    .resultado-penalti {
+      min-height: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .btn-repetir {
+      display: none;
+      width: 100%;
+      border: none;
+      background: var(--dorado);
+      color: var(--texto);
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a class="back-link" href="index.html">← Volver a la invitación</a>
+    <h1>⚽ Cobro de penaltis</h1>
+    <p class="intro">Elige una zona para tirar un penalti.</p>
+    <div class="marcador">GOLES: <span id="p-goles">0</span> / <span id="p-total">0</span></div>
+    <div class="porteria" id="porteria">
+      <div class="zona" id="zona-0"><span class="portero-emoji">🧤</span></div>
+      <div class="zona" id="zona-1"><span class="portero-emoji">🧤</span></div>
+      <div class="zona" id="zona-2"><span class="portero-emoji">🧤</span></div>
+    </div>
+    <div class="palo-base"></div>
+    <div class="instruccion">¿A dónde disparas?</div>
+    <div class="btns-direccion">
+      <button class="btn-dir" onclick="cobrarPenalti(0)">◀ IZQ</button>
+      <button class="btn-dir" onclick="cobrarPenalti(1)">● CENTRO</button>
+      <button class="btn-dir" onclick="cobrarPenalti(2)">DER ▶</button>
+    </div>
+    <div class="resultado-penalti" id="p-resultado"></div>
+    <button class="btn-repetir" id="btn-repetir" onclick="resetTiro()">🔄 Otro penalti</button>
+  </div>
+
+  <script>
+    let golPenalti = 0;
+    let totalPenalti = 0;
+    let esperandoPenalti = true;
+
+    function cobrarPenalti(dirUsuario) {
+      if (!esperandoPenalti) return;
+      esperandoPenalti = false;
+
+      const btns = document.querySelectorAll('.btn-dir');
+      btns.forEach(b => b.disabled = true);
+
+      const dirPortero = Math.floor(Math.random() * 3);
+      totalPenalti++;
+
+      const zonas = [
+        document.getElementById('zona-0'),
+        document.getElementById('zona-1'),
+        document.getElementById('zona-2')
+      ];
+
+      zonas[dirPortero].classList.add('portero-aqui');
+      zonas[dirUsuario].classList.add('balón-aqui');
+
+      const res = document.getElementById('p-resultado');
+      const esGol = dirUsuario !== dirPortero;
+
+      if (esGol) {
+        golPenalti++;
+        zonas[dirUsuario].classList.add('gol-zona');
+        res.style.color = '#1aad4e';
+        res.textContent = '⚽ ¡GOOOL!';
+      } else {
+        res.style.color = '#e74c3c';
+        res.textContent = '🧤 ¡Atajado!';
+      }
+
+      document.getElementById('p-goles').textContent = golPenalti;
+      document.getElementById('p-total').textContent = totalPenalti;
+      document.getElementById('btn-repetir').style.display = 'inline-block';
+
+      if (totalPenalti >= 5) {
+        const pct = Math.round((golPenalti / totalPenalti) * 100);
+        const msg = golPenalti === 5 ? '🏆 ¡Delantero perfecto!' :
+          golPenalti >= 3 ? '⚽ ¡Buen chutador!' : '💪 ¡Sigue practicando!';
+        setTimeout(() => {
+          document.getElementById('p-resultado').innerHTML =
+            `${msg}<br><small style="font-size:0.7rem;color:rgba(255,255,255,0.6)">${golPenalti}/5 goles · ${pct}% efectividad</small>`;
+          document.getElementById('btn-repetir').textContent = '🔄 Jugar de nuevo';
+          document.getElementById('btn-repetir').onclick = resetJuegoCompleto;
+        }, 600);
+      }
+    }
+
+    function resetTiro() {
+      esperandoPenalti = true;
+      document.querySelectorAll('.zona').forEach(z => {
+        z.classList.remove('balón-aqui', 'portero-aqui', 'gol-zona');
+      });
+      document.querySelectorAll('.btn-dir').forEach(b => b.disabled = false);
+      document.getElementById('p-resultado').textContent = '';
+      document.getElementById('btn-repetir').style.display = 'none';
+      document.getElementById('btn-repetir').textContent = '🔄 Otro penalti';
+      document.getElementById('btn-repetir').onclick = resetTiro;
+    }
+
+    function resetJuegoCompleto() {
+      golPenalti = 0;
+      totalPenalti = 0;
+      esperandoPenalti = true;
+      document.querySelectorAll('.zona').forEach(z => {
+        z.classList.remove('balón-aqui', 'portero-aqui', 'gol-zona');
+      });
+      document.querySelectorAll('.btn-dir').forEach(b => b.disabled = false);
+      document.getElementById('p-goles').textContent = golPenalti;
+      document.getElementById('p-total').textContent = totalPenalti;
+      document.getElementById('p-resultado').textContent = '';
+      document.getElementById('btn-repetir').style.display = 'none';
+      document.getElementById('btn-repetir').textContent = '🔄 Otro penalti';
+      document.getElementById('btn-repetir').onclick = resetTiro;
+    }
+  </script>
+</body>
+</html>
