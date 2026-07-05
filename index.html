@@ -535,11 +535,12 @@
     </div>
 
     <!-- MINIJUEGO PENALTIS -->
-    <div class="card" id="card-penalti" onclick="abrirPenalti(this)">
+    <div class="card" id="card-penalti" onclick="abrirPenalti()">
       <span class="card-icon">🥅</span>
       <div class="card-title">Mini Juego</div>
-      <div class="card-body penalti-area" id="penalti-area">
-        <!-- generado por JS -->
+      <div class="card-body">
+        <strong>Abre el juego</strong>
+        Toca aquí para ir a la página de penaltis y ver los controles siempre visibles.
       </div>
     </div>
 
@@ -597,107 +598,8 @@ function toggleCard(el) {
 }
 
 // ─── MINI JUEGO: COBRO DE PENALTIS ──────────────────────
-const DIRS = ['izquierda', 'centro', 'derecha'];
-const DIRS_LABEL = ['◀ Izq', '● Centro', 'Der ▶'];
-const DIRS_EMOJI = ['⬅️', '⏺️', '➡️'];
-
-let penaltiAbierto = false;
-let golPenalti = 0;
-let totalPenalti = 0;
-let esperandoPenalti = true;
-
-function abrirPenalti(card) {
-  if (!penaltiAbierto) {
-    penaltiAbierto = true;
-    card.classList.add('open');
-    renderPenalti();
-  } else {
-    card.classList.toggle('open');
-  }
-}
-
-function renderPenalti() {
-  const area = document.getElementById('penalti-area');
-  area.innerHTML = `
-    <div class="marcador">GOLES: <span id="p-goles">${golPenalti}</span> / <span id="p-total">${totalPenalti}</span></div>
-    <div class="porteria" id="porteria">
-      <div class="zona" id="zona-0"><span class="portero-emoji">🧤</span></div>
-      <div class="zona" id="zona-1"><span class="portero-emoji">🧤</span></div>
-      <div class="zona" id="zona-2"><span class="portero-emoji">🧤</span></div>
-    </div>
-    <div class="palo-base"></div>
-    <div class="instruccion-penalti">¿A dónde chutás?</div>
-    <div class="btns-direccion">
-      <button class="btn-dir" onclick="cobrarPenalti(0)">◀ IZQ</button>
-      <button class="btn-dir" onclick="cobrarPenalti(1)">● CENTRO</button>
-      <button class="btn-dir" onclick="cobrarPenalti(2)">DER ▶</button>
-    </div>
-    <div class="resultado-penalti" id="p-resultado"></div>
-    <button class="btn-repetir" id="btn-repetir" onclick="resetTiro()">🔄 Otro penalti</button>
-  `;
-}
-
-function cobrarPenalti(dirUsuario) {
-  if (!esperandoPenalti) return;
-  esperandoPenalti = false;
-
-  const btns = document.querySelectorAll('.btn-dir');
-  btns.forEach(b => b.disabled = true);
-
-  const dirPortero = Math.floor(Math.random() * 3);
-  totalPenalti++;
-
-  const zonas = [
-    document.getElementById('zona-0'),
-    document.getElementById('zona-1'),
-    document.getElementById('zona-2')
-  ];
-
-  zonas[dirPortero].classList.add('portero-aqui');
-  zonas[dirUsuario].classList.add('balón-aqui');
-
-  const res = document.getElementById('p-resultado');
-  const esGol = dirUsuario !== dirPortero;
-
-  if (esGol) {
-    golPenalti++;
-    zonas[dirUsuario].classList.add('gol-zona');
-    res.style.color = '#1aad4e';
-    res.textContent = '⚽ ¡GOOOL!';
-  } else {
-    res.style.color = '#e74c3c';
-    res.textContent = '🧤 ¡Atajado!';
-  }
-
-  document.getElementById('p-goles').textContent = golPenalti;
-  document.getElementById('p-total').textContent = totalPenalti;
-  document.getElementById('btn-repetir').style.display = 'inline-block';
-
-  if (totalPenalti >= 5) {
-    const pct = Math.round((golPenalti / totalPenalti) * 100);
-    const msg = golPenalti === 5 ? '🏆 ¡Delantero perfecto!' :
-                golPenalti >= 3 ? '⚽ ¡Buen chutador!' : '💪 ¡Sigue practicando!';
-    setTimeout(() => {
-      document.getElementById('p-resultado').innerHTML =
-        `${msg}<br><small style="font-size:0.7rem;color:rgba(255,255,255,0.6)">${golPenalti}/5 goles · ${pct}% efectividad</small>`;
-      document.getElementById('btn-repetir').textContent = '🔄 Jugar de nuevo';
-      document.getElementById('btn-repetir').onclick = resetJuegoCompleto;
-    }, 600);
-  }
-}
-
-function resetTiro() {
-  esperandoPenalti = true;
-  renderPenalti();
-  document.getElementById('p-goles').textContent = golPenalti;
-  document.getElementById('p-total').textContent = totalPenalti;
-}
-
-function resetJuegoCompleto() {
-  golPenalti = 0;
-  totalPenalti = 0;
-  esperandoPenalti = true;
-  renderPenalti();
+function abrirPenalti() {
+  window.location.href = 'penalti.html';
 }
 
 // ─── CONFETI ────────────────────────────────────────────
