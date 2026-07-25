@@ -2,620 +2,765 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#004d1a">
-
-<!-- Edita estos datos para la vista previa en WhatsApp -->
-<meta property="og:title" content="⚽ ¡Te invito a mi fiesta! — Iker Raúl cumple 11 años">
-<meta property="og:description" content="Domingo 12 de julio · 14:30 Hrs · Pachuca">
-<meta property="og:image" content="iker-preview.jpg">
+<meta name="theme-color" content="#f5e6d3">
+<meta property="og:title" content="✨ 70 Años de Vida — Lupita">
+<meta property="og:description" content="19 de septiembre de 2026 · 2:00 p.m. · ¡Tu presencia será el mejor regalo!">
 <meta property="og:type" content="website">
+<title>70 Años de Vida · Lupita</title>
 
-<title>⚽ Fiesta de Iker Raúl · 11 años</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --crema:      #f9f0e3;
+  --crema-med:  #f0dfc8;
+  --dorado:     #a0722a;
+  --dorado-claro: #c9962f;
+  --dorado-brillante: #e8c060;
+  --rosa:       #d4889a;
+  --rosa-claro: #f0c8d4;
+  --texto:      #6b3a1f;
+  --texto-med:  #8b5a2b;
+}
 
-  :root {
-    --verde: #00581f;
-    --verde-claro: #1aad4e;
-    --dorado: #f5c518;
-    --dorado-oscuro: #c9a000;
-    --rojo: #c0392b;
-    --blanco: #ffffff;
-    --gris: #f0f0f0;
-    --texto: #1a1a1a;
-  }
+html, body {
+  min-height: 100%;
+  background: var(--crema);
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--texto);
+  overflow-x: hidden;
+}
 
-  html, body {
-    min-height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background: var(--verde);
-    color: var(--blanco);
-    overflow-x: hidden;
-  }
+/* ─── FONDO CON TEXTURA ─── */
+body {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(212,136,154,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(212,136,154,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(232,192,96,0.05) 0%, transparent 70%),
+    linear-gradient(160deg, #fdf5e8 0%, #f5e6d0 40%, #fdf0e4 100%);
+}
 
-  /* ─── CAMPO DE FÚTBOL ─── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      /* Líneas del campo */
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 60px,
-        rgba(255,255,255,0.03) 60px,
-        rgba(255,255,255,0.03) 62px
-      ),
-      linear-gradient(180deg, #005c20 0%, #004d1a 40%, #003d15 100%);
-    z-index: 0;
-    pointer-events: none;
-  }
+/* ─── DESTELLOS DORADOS ─── */
+.page {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
 
-  /* Círculo central del campo */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 280px;
-    height: 280px;
-    border: 2px solid rgba(255,255,255,0.07);
-    border-radius: 50%;
-    z-index: 0;
-    pointer-events: none;
-  }
+/* Destellos de fondo */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(232,192,96,0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(232,192,96,0.3) 1px, transparent 1px);
+  background-size: 60px 60px, 90px 90px;
+  background-position: 0 0, 30px 30px;
+  pointer-events: none;
+  opacity: 0.35;
+}
 
-  .page {
-    position: relative;
-    z-index: 1;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
+/* ─── MARCO DECORATIVO SVG ─── */
+.marco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
 
-  /* ─── HEADER ─── */
-  .header {
-    text-align: center;
-    padding-top: 1rem;
-  }
+/* ─── FLORES SVG ─── */
+.flores-top, .flores-bottom {
+  width: 100%;
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
 
-  .ball {
-    font-size: 4rem;
-    display: block;
-    animation: bounce 1.6s infinite ease-in-out;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
-  }
+/* ─── CONTENIDO ─── */
+.contenido {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
 
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-14px) rotate(20deg); }
-  }
+/* ─── SUBTÍTULO INTRO ─── */
+.intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--texto-med);
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+}
 
-  .nombre {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--dorado);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    line-height: 1.1;
-    margin-top: 0.5rem;
-  }
+/* ─── EDAD GRANDE ─── */
+.edad-grande {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  color: var(--dorado);
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+  text-shadow: 0 2px 8px rgba(160,114,42,0.2);
+  filter: drop-shadow(0 1px 2px rgba(160,114,42,0.15));
+}
 
-  .subtitulo {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 0.3rem;
-  }
+/* Línea decorativa bajo la edad */
+.linea-deco {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem auto 1.2rem;
+  color: var(--dorado-claro);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.linea-deco::before,
+.linea-deco::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dorado-claro), transparent);
+  width: 50px;
+}
 
-  .edad-badge {
-    display: inline-block;
-    background: var(--dorado);
-    color: #1a1a1a;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 0.3rem 1.2rem;
-    border-radius: 999px;
-    margin-top: 0.8rem;
-    letter-spacing: 1px;
-  }
+/* ─── TEXTO HONOR ─── */
+.honor {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--texto-med);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 
-  /* ─── MENSAJE ─── */
-  .mensaje {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 1.25rem 1.5rem;
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.92);
-    width: 100%;
-  }
+/* ─── NOMBRE ─── */
+.nombre {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: var(--dorado);
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(160,114,42,0.25);
+  margin-bottom: 0.2rem;
+}
 
-  .mensaje strong {
-    color: var(--dorado);
-    font-weight: 700;
-  }
+.chispas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--dorado-claro);
+  margin-bottom: 0.5rem;
+}
 
-  /* ─── RESUMEN RÁPIDO ─── */
-  .resumen {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.75);
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+/* ─── SEPARADOR ORNAMENTAL ─── */
+.ornamento {
+  width: 100%;
+  text-align: center;
+  color: var(--dorado-claro);
+  font-size: 0.9rem;
+  letter-spacing: 6px;
+  opacity: 0.6;
+  margin: 0.6rem 0;
+}
 
-  .resumen span { white-space: nowrap; }
+/* ─── MARCO INTERIOR ─── */
+.marco-interior {
+  border: 1px solid rgba(160,114,42,0.3);
+  border-radius: 2px;
+  padding: 1.4rem 1.6rem;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(2px);
+}
 
-  /* ─── CUENTA REGRESIVA ─── */
-  .countdown-section {
-    width: 100%;
-    text-align: center;
-  }
+/* Esquinas del marco */
+.marco-interior::before,
+.marco-interior::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.6rem;
+  color: var(--dorado-claro);
+  opacity: 0.7;
+}
+.marco-interior::before { top: -0.4rem; left: 0.3rem; }
+.marco-interior::after  { bottom: -0.4rem; right: 0.3rem; }
 
-  .countdown-label {
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 0.75rem;
-  }
+/* ─── DATOS DEL EVENTO ─── */
+.dato {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
 
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-  }
+.dato-icon {
+  font-size: 1rem;
+  opacity: 0.7;
+  font-style: normal;
+}
 
-  .cd-item {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
-    min-width: 64px;
-    text-align: center;
-  }
+.sep-dato {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,114,42,0.25), transparent);
+  margin: 0.4rem 0;
+}
 
-  .cd-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--dorado);
-    line-height: 1;
-    display: block;
-  }
+/* ─── UBICACIÓN ─── */
+.ubicacion {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--texto-med);
+  text-align: center;
+  line-height: 1.6;
+}
 
-  .cd-text {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-top: 4px;
-    display: block;
-  }
+.ubicacion a {
+  color: var(--dorado);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(160,114,42,0.3);
+}
 
-  /* ─── TARJETAS ─── */
-  .cards-hint {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    letter-spacing: 1px;
-  }
+/* ─── CUENTA REGRESIVA ─── */
+.countdown-wrap {
+  width: 100%;
+  text-align: center;
+  padding: 0 2rem;
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 4;
+}
 
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-    width: 100%;
-  }
+.cd-etiqueta {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--dorado);
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
 
-  .card {
-    background: rgba(255,255,255,0.09);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 16px;
-    padding: 1.25rem 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-    position: relative;
-    overflow: hidden;
-    user-select: none;
-  }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
 
-  .card:active { transform: scale(0.96); }
+.cd-item {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(160,114,42,0.2);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  min-width: 58px;
+  backdrop-filter: blur(4px);
+}
 
-  .card.open {
-    background: rgba(255,255,255,0.15);
-    border-color: var(--dorado);
-  }
+.cd-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: var(--dorado);
+  display: block;
+  line-height: 1;
+}
 
-  .card-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 0.4rem;
-  }
+.cd-txt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto-med);
+  opacity: 0.6;
+  margin-top: 3px;
+  display: block;
+}
 
-  .card-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-  }
+/* ─── MENSAJE FINAL ─── */
+.mensaje-final {
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  margin-top: 1.2rem;
+}
 
-  .card-body {
-    display: none;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.9);
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255,255,255,0.15);
-  }
+.msg-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--texto-med);
+  line-height: 1.8;
+}
 
-  .card.open .card-body {
-    display: block;
-  }
+.msg-resalte {
+  font-style: italic;
+  color: var(--dorado);
+  font-size: 1.05rem;
+  display: block;
+  margin-top: 0.4rem;
+}
 
-  .card-body strong {
-    color: var(--dorado);
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-  }
+/* ─── CONFIRMAR ─── */
+.confirmar-wrap {
+  padding: 0 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  margin-top: 1rem;
+}
 
-  /* ─── MINIJUEGO PENALTIS ─── */
-  .penalti-area { text-align: center; }
+.btn-confirmar {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--dorado-claro), var(--dorado));
+  color: #fff9f0;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.7rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 16px rgba(160,114,42,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
-  .porteria {
-    position: relative;
-    width: 100%;
-    height: 72px;
-    border: 3px solid rgba(255,255,255,0.85);
-    border-bottom: none;
-    border-radius: 4px 4px 0 0;
-    margin-bottom: 4px;
-    display: flex;
-    overflow: hidden;
-  }
+.btn-confirmar:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(160,114,42,0.2);
+}
 
-  .zona {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    border-right: 1px dashed rgba(255,255,255,0.2);
-    transition: background 0.3s;
-    position: relative;
-  }
-  .zona:last-child { border-right: none; }
+/* ─── FLORES SVG ─── */
+svg.flores { overflow: visible; }
 
-  .zona.balón-aqui { background: rgba(245,197,24,0.35); }
-  .zona.portero-aqui { background: rgba(192,57,43,0.45); }
-  .zona.gol-zona { background: rgba(26,173,78,0.4); }
+/* Animación suave de entrada */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  .portero-emoji {
-    font-size: 1.5rem;
-    display: none;
-    position: absolute;
-    bottom: 4px;
-  }
-  .zona.portero-aqui .portero-emoji { display: block; }
+.contenido > * {
+  animation: fadeUp 0.7s ease both;
+}
+.intro        { animation-delay: 0.1s; }
+.edad-grande  { animation-delay: 0.2s; }
+.linea-deco   { animation-delay: 0.3s; }
+.honor        { animation-delay: 0.35s; }
+.nombre       { animation-delay: 0.4s; }
+.chispas      { animation-delay: 0.45s; }
+.ornamento    { animation-delay: 0.5s; }
+.marco-interior { animation-delay: 0.55s; }
 
-  .palo-base {
-    width: 100%;
-    height: 6px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 0 0 3px 3px;
-    margin-bottom: 10px;
-  }
-
-  .marcador {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 0.5rem;
-  }
-  .marcador span { color: var(--dorado); font-size: 1rem; }
-
-  .instruccion-penalti {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 0.6rem;
-  }
-
-  .btns-direccion {
-    display: flex;
-    gap: 0.4rem;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-  }
-
-  .btn-dir {
-    flex: 1;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 8px;
-    color: white;
-    font-size: 0.75rem;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-    padding: 0.45rem 0.3rem;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-  }
-  .btn-dir:active { transform: scale(0.94); }
-  .btn-dir:disabled { opacity: 0.4; cursor: default; }
-
-  .resultado-penalti {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    min-height: 1.4rem;
-    transition: opacity 0.3s;
-  }
-
-  .btn-repetir {
-    margin-top: 0.5rem;
-    background: var(--dorado);
-    color: #1a1a1a;
-    border: none;
-    border-radius: 8px;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.78rem;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-    display: none;
-  }
-
-  /* ─── CONFIRMAR ─── */
-  .confirmar-card {
-    background: var(--dorado);
-    border-color: var(--dorado-oscuro);
-  }
-
-  .confirmar-card .card-title { color: #1a1a1a; }
-  .confirmar-card.open { background: var(--dorado); }
-  .confirmar-card .card-body { border-top-color: rgba(0,0,0,0.1); }
-  .confirmar-card .card-body { color: #1a1a1a; }
-
-  .btn-wa {
-    display: inline-block;
-    margin-top: 0.75rem;
-    background: #25d366;
-    color: white;
-    text-decoration: none;
-    border-radius: 999px;
-    padding: 0.55rem 1.2rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-family: 'Oswald', sans-serif;
-  }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-    letter-spacing: 1px;
-    padding-top: 1rem;
-  }
-
-  /* ─── CONFETI SIMPLE ─── */
-  .confeti {
-    position: fixed;
-    top: -10px;
-    width: 8px;
-    height: 14px;
-    border-radius: 2px;
-    animation: caer linear infinite;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  @keyframes caer {
-    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-  }
-
-  @media (max-width: 360px) {
-    .nombre { font-size: 2.4rem; }
-    .cards { grid-template-columns: 1fr; }
-  }
 </style>
 </head>
 <body>
-
 <div class="page">
 
-  <!-- HEADER -->
-  <header class="header">
-    <span class="ball">⚽</span>
-    <div class="nombre">Iker Raúl</div>
-    <div class="subtitulo">¡Cumple 11 años!</div>
-    <span class="edad-badge">🏆 El partido más importante del año 🏆</span>
-  </header>
+  <!-- FLORES SUPERIORES (SVG) -->
+  <svg class="flores-top" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <radialGradient id="petal-rosa" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#f5c8d8"/>
+        <stop offset="60%" stop-color="#e8a0b8"/>
+        <stop offset="100%" stop-color="#c87898"/>
+      </radialGradient>
+      <radialGradient id="petal-crema" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#fff8f0"/>
+        <stop offset="60%" stop-color="#f5e0c8"/>
+        <stop offset="100%" stop-color="#e8c8a8"/>
+      </radialGradient>
+      <radialGradient id="centro-flor" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f5d070"/>
+        <stop offset="100%" stop-color="#c89030"/>
+      </radialGradient>
+    </defs>
 
-  <!-- MENSAJE -->
-  <div class="mensaje">
-    "Estamos muy felices de celebrar los 11 años de Iker y nos encantará que formes parte de este momento tan especial."
-    <br><br>
-    <strong>Con cariño, Mamá y Papá</strong>
-  </div>
+    <!-- Hojas doradas fondo -->
+    <g opacity="0.55" fill="none" stroke="#c9962f" stroke-width="1">
+      <path d="M 10 10 Q 40 40 20 80" /><path d="M 20 5 Q 55 35 35 75" />
+      <path d="M 60 0 Q 80 30 55 65" /><path d="M 5 50 Q 35 65 25 100" />
+      <path d="M 440 10 Q 410 40 430 80" /><path d="M 460 5 Q 425 35 445 75" />
+      <path d="M 420 0 Q 400 30 425 65" /><path d="M 475 50 Q 445 65 455 100" />
+      <!-- Hojas rellenas -->
+      <ellipse cx="35" cy="20" rx="10" ry="18" transform="rotate(-30 35 20)" fill="#c9962f" opacity="0.4"/>
+      <ellipse cx="15" cy="55" rx="8" ry="16" transform="rotate(15 15 55)" fill="#c9962f" opacity="0.3"/>
+      <ellipse cx="65" cy="15" rx="9" ry="17" transform="rotate(-50 65 15)" fill="#c9962f" opacity="0.35"/>
+      <ellipse cx="445" cy="20" rx="10" ry="18" transform="rotate(30 445 20)" fill="#c9962f" opacity="0.4"/>
+      <ellipse cx="465" cy="55" rx="8" ry="16" transform="rotate(-15 465 55)" fill="#c9962f" opacity="0.3"/>
+      <ellipse cx="415" cy="15" rx="9" ry="17" transform="rotate(50 415 15)" fill="#c9962f" opacity="0.35"/>
+    </g>
 
-  <!-- RESUMEN RÁPIDO -->
-  <div class="resumen">
-    <span>📅 12 julio 2026</span>
-    <span>·</span>
-    <span>⏰ 14:30 Hrs</span>
-    <span>·</span>
-    <span>📍 Casa de mis abuelitos</span>
+    <!-- FLOR grande esquina superior izq (crema) -->
+    <g transform="translate(55,65)">
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="10" fill="url(#centro-flor)"/>
+      <circle cx="0" cy="0" r="5" fill="#f5d890" opacity="0.8"/>
+    </g>
+
+    <!-- FLOR rosa esquina superior izq -->
+    <g transform="translate(15,110)">
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="8" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- FLOR crema esquina superior izq segunda -->
+    <g transform="translate(100,30)">
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="8" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- FLOR rosa pequeña izq -->
+    <g transform="translate(110,100)">
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="6" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- FLOR grande esquina superior der (crema) -->
+    <g transform="translate(425,65)">
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema)" opacity="0.9" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="10" fill="url(#centro-flor)"/>
+      <circle cx="0" cy="0" r="5" fill="#f5d890" opacity="0.8"/>
+    </g>
+
+    <!-- FLOR rosa esquina superior der -->
+    <g transform="translate(465,110)">
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-22" rx="11" ry="24" fill="url(#petal-rosa)" opacity="0.85" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="8" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- FLOR crema der segunda -->
+    <g transform="translate(380,30)">
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-20" rx="12" ry="22" fill="url(#petal-crema)" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="8" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- FLOR rosa pequeña der -->
+    <g transform="translate(370,100)">
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-16" rx="9" ry="18" fill="url(#petal-rosa)" opacity="0.75" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="6" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- Flores centro arriba -->
+    <g transform="translate(200,20)">
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa)" opacity="0.6"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa)" opacity="0.6" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa)" opacity="0.6" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa)" opacity="0.6" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa)" opacity="0.6" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="5" fill="url(#centro-flor)"/>
+    </g>
+    <g transform="translate(280,15)">
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6"/>
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-12" rx="7" ry="14" fill="url(#petal-crema)" opacity="0.6" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="4" fill="url(#centro-flor)"/>
+    </g>
+
+    <!-- Marco dorado superior -->
+    <rect x="130" y="230" width="220" height="1" fill="url(#lineaGrad)" opacity="0.5"/>
+    <defs>
+      <linearGradient id="lineaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="transparent"/>
+        <stop offset="50%" stop-color="#c9962f"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- CONTENIDO CENTRAL -->
+  <div class="contenido">
+
+    <p class="intro">Con inmensa alegría celebramos</p>
+
+    <div class="edad-grande">70 años de vida</div>
+
+    <div class="linea-deco">
+      <span>✦ ✦ ✦</span>
+    </div>
+
+    <p class="honor">Te invitamos a compartir este día tan especial en honor a</p>
+
+    <div class="chispas"><span>✦</span> <div class="nombre">Lupita</div> <span>✦</span></div>
+
+    <div class="ornamento">· · ◆ · ·</div>
+
+    <div class="marco-interior">
+      <div class="dato">
+        <span class="dato-icon">📅</span>
+        19 de septiembre de 2026
+      </div>
+      <div class="sep-dato"></div>
+      <div class="dato">
+        <span class="dato-icon">🕑</span>
+        2:00 p.m.
+      </div>
+      <div class="sep-dato"></div>
+      <!-- EDITA AQUÍ el lugar -->
+      <div class="ubicacion">
+        <!-- Descomenta la siguiente línea y pon el nombre del lugar:
+        <strong>[Nombre del salón o lugar]</strong><br>
+        -->
+        <!-- Descomenta y pon tu enlace de Maps:
+        <a href="https://maps.google.com/?q=..." target="_blank">📍 Ver ubicación</a>
+        -->
+        <em style="font-size:0.85rem; color:rgba(107,58,31,0.5)">[Lugar por confirmar]</em>
+      </div>
+    </div>
+
+    <div class="ornamento" style="margin-top:0.6rem">· · ◆ · ·</div>
+
   </div>
 
   <!-- CUENTA REGRESIVA -->
-  <div class="countdown-section">
-    <div class="countdown-label">Faltan</div>
+  <div class="countdown-wrap">
+    <div class="cd-etiqueta">Faltan</div>
     <div class="countdown">
       <div class="cd-item">
         <span class="cd-num" id="cd-dias">--</span>
-        <span class="cd-text">días</span>
+        <span class="cd-txt">días</span>
       </div>
       <div class="cd-item">
         <span class="cd-num" id="cd-horas">--</span>
-        <span class="cd-text">horas</span>
+        <span class="cd-txt">horas</span>
       </div>
       <div class="cd-item">
         <span class="cd-num" id="cd-mins">--</span>
-        <span class="cd-text">min</span>
+        <span class="cd-txt">min</span>
       </div>
       <div class="cd-item">
         <span class="cd-num" id="cd-segs">--</span>
-        <span class="cd-text">seg</span>
+        <span class="cd-txt">seg</span>
       </div>
     </div>
   </div>
 
-  <!-- INSTRUCCIÓN -->
-  <div class="cards-hint">✨ Toca cada tarjeta para descubrir los detalles</div>
-
-  <!-- TARJETAS -->
-  <div class="cards">
-
-    <!-- CUÁNDO -->
-    <div class="card" onclick="toggleCard(this)">
-      <span class="card-icon">📅</span>
-      <div class="card-title">¿Cuándo?</div>
-      <div class="card-body">
-        <!-- EDITA AQUÍ -->
-        <strong>domingo</strong>
-        12 de julio de 2026<br>
-        a las <strong>14:30 Hrs</strong>
-      </div>
-    </div>
-
-    <!-- DÓNDE -->
-    <div class="card" onclick="toggleCard(this)">
-      <span class="card-icon">📍</span>
-      <div class="card-title">¿Dónde?</div>
-      <div class="card-body">
-        <!-- EDITA AQUÍ -->
-        <strong>Casa Abuelitos</strong>
-        Margarita Micheleta #7<br>
-        Col. Palmitas<br>
-        Pachuca<br><br> 
-        <a href="https://maps.app.goo.gl/E7ZGte28cZcmSCRz5" target="_blank" style="color: #f5c518;">📌 Ver en mapa</a>
-      </div>
-    </div>
-
-    <!-- MINIJUEGO PENALTIS -->
-    <div class="card" id="card-penalti" onclick="abrirPenalti()">
-      <span class="card-icon">🥅</span>
-      <div class="card-title">Mini Juego</div>
-      <div class="card-body">
-        <strong>Abre el juego</strong>
-        Toca aquí para ir a la página de penaltis y ver los controles siempre visibles.
-      </div>
-    </div>
-
-    <!-- CONFIRMAR -->
-    <div class="card confirmar-card" onclick="toggleCard(this)">
-      <span class="card-icon">🎉</span>
-      <div class="card-title">Confirmar</div>
-      <div class="card-body">
-        ¡Cuéntanos si vienes!<br><br>
-        <!-- EDITA el número de WhatsApp (formato internacional sin +) -->
-        <a class="btn-wa"
-           href="https://wa.me/527711421689?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Iker%20Raúl%20🎂⚽"
-           target="_blank">
-          ✅ Confirmar por WhatsApp
-        </a>
-      </div>
-    </div>
-
+  <!-- MENSAJE FINAL -->
+  <div class="mensaje-final">
+    <p class="msg-texto">
+      Acompáñanos a celebrar siete décadas de amor,<br>alegría y hermosos recuerdos.
+      <span class="msg-resalte">¡Tu presencia será el mejor regalo!</span>
+    </p>
   </div>
 
-  <footer class="footer">⚽ ¡Nos vemos en la cancha! ⚽</footer>
+  <!-- CONFIRMAR -->
+  <div class="confirmar-wrap">
+    <!-- EDITA el número de WhatsApp -->
+    <a class="btn-confirmar"
+       href="https://wa.me/521XXXXXXXXXX?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20festejo%20de%20Lupita%20🌸"
+       target="_blank">
+      Confirmar asistencia
+    </a>
+  </div>
+
+  <!-- FLORES INFERIORES -->
+  <svg class="flores-bottom" viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="margin-top:1.5rem">
+    <defs>
+      <radialGradient id="petal-rosa2" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#f5c8d8"/>
+        <stop offset="60%" stop-color="#e8a0b8"/>
+        <stop offset="100%" stop-color="#c87898"/>
+      </radialGradient>
+      <radialGradient id="petal-crema2" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#fff8f0"/>
+        <stop offset="60%" stop-color="#f5e0c8"/>
+        <stop offset="100%" stop-color="#e8c8a8"/>
+      </radialGradient>
+      <radialGradient id="centro2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f5d070"/>
+        <stop offset="100%" stop-color="#c89030"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Hojas -->
+    <g opacity="0.5" fill="#c9962f">
+      <ellipse cx="40" cy="200" rx="10" ry="20" transform="rotate(20 40 200)" opacity="0.4"/>
+      <ellipse cx="70" cy="220" rx="9" ry="18" transform="rotate(-10 70 220)" opacity="0.3"/>
+      <ellipse cx="110" cy="210" rx="8" ry="16" transform="rotate(35 110 210)" opacity="0.35"/>
+      <ellipse cx="440" cy="200" rx="10" ry="20" transform="rotate(-20 440 200)" opacity="0.4"/>
+      <ellipse cx="410" cy="220" rx="9" ry="18" transform="rotate(10 410 220)" opacity="0.3"/>
+      <ellipse cx="370" cy="210" rx="8" ry="16" transform="rotate(-35 370 210)" opacity="0.35"/>
+    </g>
+
+    <!-- FLOR grande izq baja (crema) -->
+    <g transform="translate(65,175)">
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="10" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR rosa izq baja -->
+    <g transform="translate(20,140)">
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="9" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR crema centro izq -->
+    <g transform="translate(120,200)">
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="7" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR rosa pequeña centro -->
+    <g transform="translate(200,210)">
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa2)" opacity="0.7"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa2)" opacity="0.7" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa2)" opacity="0.7" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa2)" opacity="0.7" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-rosa2)" opacity="0.7" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="5" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR crema centro -->
+    <g transform="translate(280,205)">
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-14" rx="8" ry="16" fill="url(#petal-crema2)" opacity="0.7" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="5" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR grande der baja (crema) -->
+    <g transform="translate(415,175)">
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-28" rx="14" ry="30" fill="url(#petal-crema2)" opacity="0.9" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="10" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR rosa der baja -->
+    <g transform="translate(460,140)">
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-22" rx="12" ry="25" fill="url(#petal-rosa2)" opacity="0.85" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="9" fill="url(#centro2)"/>
+    </g>
+
+    <!-- FLOR crema centro der -->
+    <g transform="translate(360,200)">
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-18" rx="10" ry="20" fill="url(#petal-crema2)" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="7" fill="url(#centro2)"/>
+    </g>
+  </svg>
+
 </div>
 
 <script>
-// ─── CUENTA REGRESIVA ───────────────────────────────────
-// EDITA ESTA FECHA: año, mes (0-11), día, hora, minuto
-const FECHA_FIESTA = new Date(2026, 6, 12, 14, 30, 0);
+// Fecha: 19 de septiembre de 2026 a las 14:00
+const FECHA = new Date(2026, 8, 19, 14, 0, 0);
 
-function actualizarCuenta() {
-  const ahora = new Date();
-  const diff = FECHA_FIESTA - ahora;
+function tick() {
+  const diff = FECHA - new Date();
   if (diff <= 0) {
-    document.getElementById('cd-dias').textContent = '🎉';
-    document.getElementById('cd-horas').textContent = '00';
-    document.getElementById('cd-mins').textContent = '00';
-    document.getElementById('cd-segs').textContent = '00';
+    ['cd-dias','cd-horas','cd-mins','cd-segs'].forEach((id,i) => {
+      document.getElementById(id).textContent = i === 0 ? '🌸' : '00';
+    });
     return;
   }
-  const dias  = Math.floor(diff / 86400000);
-  const horas = Math.floor((diff % 86400000) / 3600000);
-  const mins  = Math.floor((diff % 3600000) / 60000);
-  const segs  = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-dias').textContent  = String(dias).padStart(2,'0');
-  document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
-  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
-  document.getElementById('cd-segs').textContent  = String(segs).padStart(2,'0');
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-dias').textContent  = String(d).padStart(2,'0');
+  document.getElementById('cd-horas').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+  document.getElementById('cd-segs').textContent  = String(s).padStart(2,'0');
 }
-actualizarCuenta();
-setInterval(actualizarCuenta, 1000);
-
-// ─── TARJETAS ───────────────────────────────────────────
-function toggleCard(el) {
-  if (el.querySelector('.penalti-area')) return;
-  el.classList.toggle('open');
-}
-
-// ─── MINI JUEGO: COBRO DE PENALTIS ──────────────────────
-function abrirPenalti() {
-  window.location.href = 'penalti.html';
-}
-
-// ─── CONFETI ────────────────────────────────────────────
-const colores = ['#f5c518','#1aad4e','#ffffff','#c0392b','#3498db'];
-for (let i = 0; i < 18; i++) {
-  const c = document.createElement('div');
-  c.className = 'confeti';
-  c.style.left = Math.random() * 100 + 'vw';
-  c.style.background = colores[Math.floor(Math.random() * colores.length)];
-  c.style.animationDuration = (3 + Math.random() * 5) + 's';
-  c.style.animationDelay = (Math.random() * 6) + 's';
-  c.style.width = (6 + Math.random() * 6) + 'px';
-  c.style.height = (10 + Math.random() * 8) + 'px';
-  c.style.opacity = 0.7 + Math.random() * 0.3;
-  document.body.appendChild(c);
-}
+tick();
+setInterval(tick, 1000);
 </script>
 </body>
 </html>
