@@ -353,11 +353,227 @@ body {
   letter-spacing: 2px;
   box-shadow: 0 4px 16px rgba(160,114,42,0.25);
   transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-confirmar:active {
   transform: scale(0.97);
   box-shadow: 0 2px 8px rgba(160,114,42,0.2);
+}
+
+/* ─── OVERLAY RSVP ─── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(107,58,31,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.overlay-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(160deg, #fdf5e8 0%, #f5e6d0 100%);
+  border-radius: 28px 28px 0 0;
+  padding: 0.5rem 1.5rem 2.5rem;
+  transform: translateY(60px);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: 0 -8px 40px rgba(107,58,31,0.18);
+}
+
+.overlay.visible .overlay-panel {
+  transform: translateY(0);
+}
+
+/* Tirador */
+.overlay-handle {
+  width: 40px;
+  height: 4px;
+  background: rgba(160,114,42,0.25);
+  border-radius: 999px;
+  margin: 0.7rem auto 1.2rem;
+}
+
+/* Encabezado overlay */
+.ov-flores {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.ov-titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.4rem;
+  color: var(--dorado);
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.ov-subtitulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--texto-med);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Separador */
+.ov-sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,114,42,0.3), transparent);
+  margin-bottom: 1.2rem;
+}
+
+/* Filas de contador */
+.ov-fila {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(160,114,42,0.18);
+  border-radius: 16px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.ov-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ov-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--texto);
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.ov-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ov-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(160,114,42,0.35);
+  background: rgba(255,255,255,0.7);
+  color: var(--dorado);
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  line-height: 1;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.ov-btn:active {
+  transform: scale(0.9);
+  background: rgba(201,150,47,0.15);
+}
+
+.ov-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dorado);
+  min-width: 28px;
+  text-align: center;
+}
+
+/* Fecha límite */
+.ov-deadline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--texto-med);
+  text-align: center;
+  margin: 0.6rem 0 1.1rem;
+  opacity: 0.8;
+}
+
+.ov-deadline strong {
+  color: var(--dorado);
+  font-style: normal;
+}
+
+/* Botón WhatsApp */
+.btn-wa-rsvp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  background: linear-gradient(135deg, #25d366, #1aab55);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-wa-rsvp:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(37,211,102,0.2);
+}
+
+.wa-logo {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: rgba(160,114,42,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: var(--dorado);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ─── FLORES SVG ─── */
@@ -566,13 +782,9 @@ svg.flores { overflow: visible; }
       <div class="sep-dato"></div>
       <!-- EDITA AQUÍ el lugar -->
       <div class="ubicacion">
-        <!-- Descomenta la siguiente línea y pon el nombre del lugar:
-        <strong>[Nombre del salón o lugar]</strong><br>
-        -->
-        <!-- Descomenta y pon tu enlace de Maps:
-        <a href="https://maps.google.com/?q=..." target="_blank">📍 Ver ubicación</a>
-        -->
-        <em style="font-size:0.85rem; color:rgba(107,58,31,0.5)">[Lugar por confirmar]</em>
+        <a href="https://maps.app.goo.gl/sB57dB1f4pa53uVj6?g_st=ic" target="_blank" style="color:var(--dorado); text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; font-style:italic; border-bottom:1px solid rgba(160,114,42,0.3); padding-bottom:2px;">
+          📍 Ver ubicación en Google Maps
+        </a>
       </div>
     </div>
 
@@ -613,12 +825,59 @@ svg.flores { overflow: visible; }
 
   <!-- CONFIRMAR -->
   <div class="confirmar-wrap">
-    <!-- EDITA el número de WhatsApp -->
-    <a class="btn-confirmar"
-       href="https://wa.me/521XXXXXXXXXX?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20festejo%20de%20Lupita%20🌸"
-       target="_blank">
-      Confirmar asistencia
-    </a>
+    <button class="btn-confirmar" onclick="abrirRSVP()">
+      🌸 Confirmar asistencia
+    </button>
+  </div>
+
+  <!-- OVERLAY RSVP -->
+  <div class="overlay" id="overlay" onclick="cerrarSiBackdrop(event)">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-panel" role="dialog" aria-modal="true" aria-label="Confirmar asistencia">
+
+      <button class="btn-cerrar" onclick="cerrarRSVP()" aria-label="Cerrar">✕</button>
+      <div class="overlay-handle"></div>
+
+      <div class="ov-flores">🌸 ✦ 🌸</div>
+      <div class="ov-titulo">¿Nos acompañas?</div>
+      <p class="ov-subtitulo">¡Lupita te espera con todo el cariño del mundo!</p>
+
+      <div class="ov-sep"></div>
+
+      <!-- Adultos -->
+      <div class="ov-fila">
+        <span class="ov-icon">🧑</span>
+        <span class="ov-label">Adultos</span>
+        <div class="ov-controles">
+          <button class="ov-btn" onclick="cambiar('adultos',-1)">−</button>
+          <span class="ov-num" id="num-adultos">1</span>
+          <button class="ov-btn" onclick="cambiar('adultos',1)">+</button>
+        </div>
+      </div>
+
+      <!-- Niños -->
+      <div class="ov-fila">
+        <span class="ov-icon">🧒</span>
+        <span class="ov-label">Niños</span>
+        <div class="ov-controles">
+          <button class="ov-btn" onclick="cambiar('ninos',-1)">−</button>
+          <span class="ov-num" id="num-ninos">0</span>
+          <button class="ov-btn" onclick="cambiar('ninos',1)">+</button>
+        </div>
+      </div>
+
+      <p class="ov-deadline">Confirma antes del <strong>12 de septiembre de 2026 📅</strong></p>
+
+      <!-- Botón WhatsApp -->
+      <a class="btn-wa-rsvp" id="btn-wa" href="#" target="_blank">
+        <svg class="wa-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="16" fill="#25D366"/>
+          <path d="M23.5 8.5A10.44 10.44 0 0 0 16 5.5C10.2 5.5 5.5 10.2 5.5 16c0 1.84.48 3.63 1.4 5.22L5.5 26.5l5.4-1.4A10.5 10.5 0 0 0 16 26.5c5.8 0 10.5-4.7 10.5-10.5 0-2.8-1.1-5.43-3-7.5zm-7.5 16.15a8.7 8.7 0 0 1-4.44-1.21l-.32-.19-3.2.84.85-3.1-.21-.33A8.72 8.72 0 1 1 16 24.65zm4.78-6.53c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.58.13-.17.26-.66.85-.81 1.02-.15.17-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.29-.78-.7-1.3-1.56-1.45-1.82-.15-.26-.02-.4.11-.53.12-.12.26-.3.4-.46.13-.16.17-.26.26-.44.09-.17.04-.33-.02-.46-.07-.13-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.44h-.5c-.17 0-.44.06-.67.33-.23.26-.88.86-.88 2.1 0 1.23.9 2.42 1.02 2.59.13.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.14-1.18-.06-.1-.23-.17-.5-.3z" fill="white"/>
+        </svg>
+        Confirmar por WhatsApp
+      </a>
+
+    </div>
   </div>
 
   <!-- FLORES INFERIORES -->
@@ -739,6 +998,50 @@ svg.flores { overflow: visible; }
 </div>
 
 <script>
+// ─── RSVP OVERLAY ───────────────────────────────────────
+// EDITA el número de WhatsApp (formato internacional, sin +)
+const WA_NUM = '521XXXXXXXXXX';
+
+let contadores = { adultos: 1, ninos: 0 };
+
+function abrirRSVP() {
+  document.getElementById('overlay').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+  actualizarWA();
+}
+
+function cerrarRSVP() {
+  document.getElementById('overlay').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+function cerrarSiBackdrop(e) {
+  if (e.target === document.getElementById('overlay') ||
+      e.target.classList.contains('overlay-backdrop')) {
+    cerrarRSVP();
+  }
+}
+
+function cambiar(tipo, delta) {
+  contadores[tipo] = Math.max(0, contadores[tipo] + delta);
+  // Al menos 1 adulto
+  if (tipo === 'adultos' && contadores.adultos < 1) contadores.adultos = 1;
+  document.getElementById('num-' + tipo).textContent = contadores[tipo];
+  actualizarWA();
+}
+
+function actualizarWA() {
+  const adultos = contadores.adultos;
+  const ninos   = contadores.ninos;
+  const partes  = [`¡Hola! Confirmo mi asistencia al festejo de Lupita 🌸✨`];
+  partes.push(`👤 Adultos: ${adultos}`);
+  if (ninos > 0) partes.push(`🧒 Niños: ${ninos}`);
+  partes.push(`¡Ahí estaremos! 🎉`);
+  const msg = encodeURIComponent(partes.join('\n'));
+  document.getElementById('btn-wa').href = `https://wa.me/${WA_NUM}?text=${msg}`;
+}
+
+// ─── CUENTA REGRESIVA ───────────────────────────────────
 // Fecha: 19 de septiembre de 2026 a las 14:00
 const FECHA = new Date(2026, 8, 19, 14, 0, 0);
 
