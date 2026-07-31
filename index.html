@@ -416,6 +416,29 @@ body {
   box-shadow: 0 0 0 3px rgba(160,114,42,0.08);
 }
 
+/* ─── FOTO LUPITA ─── */
+.foto-wrap {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  margin-top: -150px; /* sube sobre las flores superiores */
+  margin-bottom: 0.2rem;
+}
+
+.foto-lupita {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 65%;
+  border: 4px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 0 0 3px rgba(201,150,47,0.45),
+    0 8px 28px rgba(107,58,31,0.22);
+  display: block;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -680,6 +703,11 @@ body {
 <!-- Arabesco der -->
 <path d="M 350 268 Q 370 260 375 250 Q 370 256 355 262 Q 365 252 362 242" stroke="#c9962f" stroke-width="0.8" fill="none" opacity="0.45"/>
 </svg>
+
+<!-- FOTO -->
+<div class="foto-wrap">
+  <img class="foto-lupita" src="img/lupita-pic.jpeg" alt="Lupita">
+</div>
 
 <!-- ═══════════════════════════════════ -->
 <!--  CONTENIDO CENTRAL                  -->
