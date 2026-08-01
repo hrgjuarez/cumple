@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mensaje de gratitud</title>
+  <style>
+    :root {
+      --rosa: #f5dce6;
+      --rosa-oscuro: #b15f7f;
+      --dorado: #a0722a;
+      --texto: #5f3c24;
+      --blanco: #fffafc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Cormorant Garamond', 'Georgia', serif;
+      color: var(--texto);
+      background: linear-gradient(135deg, #fff2f6 0%, #eed8e2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem;
+    }
+
+    .card {
+      width: min(100%, 760px);
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(160,114,42,0.2);
+      border-radius: 24px;
+      box-shadow: 0 18px 38px rgba(95,60,36,0.16);
+      padding: 2rem;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 45%);
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--dorado);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .mensaje {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      text-align: justify;
+      white-space: pre-line;
+      position: relative;
+      z-index: 1;
+    }
+
+    .decoracion {
+      text-align: center;
+      color: var(--rosa-oscuro);
+      letter-spacing: 0.4rem;
+      font-size: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .btn-volver {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--dorado), var(--rosa-oscuro));
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .card { padding: 1.3rem; }
+      .mensaje { font-size: 0.98rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="res/fondo.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="card">
+    <h1>Mensaje de gratitud</h1>
+    <div class="mensaje">Doy Gracias a Dios por el regalo de cumplir 70 años. No ha sido un camino fácil; he vivido momentos de alegría, pero también pruebas, pérdidas y dificultades que parecían imposibles de superar. Sin embargo cada experiencia me ha hecho más fuerte, más agradecida y más consiente del valor de la vida.
+
+Agradezco a mi familia, a mis amigas y a todas las personas que con su cariño, sus palabras y su compañía, han sido parte de mi historia.
+
+Gracias por caminar a mi lado y por hacer que este día sea aún más especial.
+
+Celebro estos 70 años con un corazón lleno de gratitud, con la satisfacción de haber vencido desafíos y con la esperanza de seguir disfrutando de las bendiciones que cada día trae.
+
+Gracias por acompañarme a celebrar la vida y este hermoso capítulo de mi historia.</div>
+    <div class="decoracion">✦ ✦ ✦</div>
+    <a class="btn-volver" href="index.html">Volver a la invitación</a>
+  </div>
+</body>
+</html>

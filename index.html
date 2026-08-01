@@ -500,6 +500,28 @@ body {
   display: block;
 }
 
+.btn-mensaje {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.8rem auto 0;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--dorado-claro), var(--dorado));
+  color: #fffdf8;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(160,114,42,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-mensaje:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(160,114,42,0.24);
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -769,6 +791,7 @@ body {
 <div class="foto-wrap">
   <img class="foto-lupita" src="img/lupita-pic.jpeg" alt="Lupita">
 </div>
+<a class="btn-mensaje" href="mensaje.html" target="_blank" rel="noopener">Clic aquí</a>
 
 <!-- ═══════════════════════════════════ -->
 <!--  CONTENIDO CENTRAL                  -->
