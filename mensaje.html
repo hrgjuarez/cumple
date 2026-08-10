@@ -83,6 +83,19 @@
       letter-spacing: 0.04em;
     }
 
+    .audio-button {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--rosa-oscuro), var(--dorado));
+      color: white;
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
     audio {
       display: none;
     }
@@ -91,6 +104,9 @@
       .card { padding: 1.3rem; }
       .mensaje { font-size: 0.98rem; }
       h1 { font-size: 1.8rem; }
+      .audio-button {
+        display: inline-block;
+      }
     }
   </style>
 </head>
@@ -111,7 +127,26 @@ Celebro estos 70 años con un corazón lleno de gratitud, con la satisfacción d
 
 Gracias por acompañarme a celebrar la vida y este hermoso capítulo de mi historia.</div>
     <div class="decoracion">✦ ✦ ✦</div>
+    <button id="audio-toggle" class="audio-button" type="button">Reproducir música</button>
     <a class="btn-volver" href="index.html">Volver a la invitación</a>
   </div>
+
+  <script>
+    const audio = document.querySelector('audio');
+    const toggle = document.getElementById('audio-toggle');
+
+    toggle.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          toggle.textContent = 'Pausar música';
+        }).catch(() => {
+          toggle.textContent = 'Reproducir música';
+        });
+      } else {
+        audio.pause();
+        toggle.textContent = 'Reproducir música';
+      }
+    });
+  </script>
 </body>
 </html>
